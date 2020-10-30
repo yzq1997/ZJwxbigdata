@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>投诉实时公示</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/roll.css">
+    <link rel="stylesheet" href="../css/roll2.css">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-fslexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        #swiper-container2 .swiper-slide {
+            font-size: 18px;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            display: block;
+            /* background: #4390EE; */
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container" id="swiper-container1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="cover">
+                    <div class="title_1"></div>
+                    <div id="map1">
+                        <div id='map'></div>
+                        <div class="xdt">
+                            <div onclick="quji('高新区')">
+                                <p>高新区</p>
+                            </div>
+                            <div onclick="quji('新区')">
+                                <p>新区</p>
+                            </div>
+                            <div onclick="quji('市本级')">
+                                <p>市本级</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="up">
+                        <p class="gg" onclick="godown()"></p>
+                        <p>往上滑动查看镇江市数据分析</p>
+                        <p>(点击地图各区可查看各区市数据分析)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="header" id="header2">
+                    <div onclick="goback()">返回地图</div>
+                    <div onclick="choice()" style="color:#fff" class="bg">镇江市</div>
+                    <div class="map">
+                        <div>
+                            <span onclick="city('镇江市')" class="city">镇江市</span>
+                            <span onclick="city('丹阳市')" class="city">丹阳市</span>
+                            <span onclick="city('句容市')" class="city">句容市</span>
+                            <span onclick="city('扬中区')" class="city">扬中区</span>
+                            <span onclick="city('丹徒区')" class="city">丹徒区</span>
+                        </div>
+                        <div>
+                            <span onclick="city('京口区')" class="city">京口区</span>
+                            <span onclick="city('润州区')" class="city">润州区</span>
+                            <span onclick="city('新区')" class="city">新区</span>
+                            <span onclick="city('高新区')" class="city">高新区</span>
+                            <span onclick="city('市本级')" class="city">市本级</span>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="swiper-container" id="swiper-container2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <!-- 头部 -->
+                                
+
+
+                                <!-- 主体内容 -->
+                                <div class="main">
+                                    <!-- 投诉数据 -->
+                                    <div class="tousu">
+                                        <div class="box1">
+                                            <div>
+                                                <p class="toup">累计投诉</p>
+                                                <p class="p1"></p>
+                                            </div>
+                                            <div>
+                                                <p>已处理</p>
+                                                <p class="p2"></p>
+                                            </div>
+                                            <div>
+                                                <p>累计换回经济损失</p>
+                                                <p class="p3"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 被投诉企业 -->
+                                    <div class="tsqy">
+                                        <div class="modular">
+                                            <div id="GovMentS">
+                                                2020年被投诉企业名称TOP10
+                                            </div>
+                                            <div class="modular_1">
+                                                <div class="scroll-box">
+                                                    <div class="roll" id="roll-box">
+                                                        <ul id="roll"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 男女比列 -->
+                                    <div class="nnbl">
+                                        <div class="modular1">
+                                            <div id="GovMentS">
+                                                2020年男女比例及年龄层次
+                                            </div>
+                                            <div id="modular2" style="height:2.57rem;" class="modularBox">
+                                                <div id="modular21" style="height:2.57rem;width: 50%;"></div>
+                                                <div class="right">
+                                                    <div class="d1">
+                                                        <p><span></span>儿童(12岁及以下)</p>
+                                                        <p class="pp1"></p>
+                                                    </div>
+                                                    <div class="d2">
+                                                        <p><span></span>老人</p>
+                                                        <p class="pp2"></p>
+                                                    </div>
+                                                    <div class="d3">
+                                                        <p><span></span>少年(12-19岁)</p>
+                                                        <p class="pp3"></p>
+                                                    </div>
+                                                    <div class="d4">
+                                                        <p><span></span>中青年(19-65岁)</p>
+                                                        <p class="pp4"></p>
+                                                    </div>
+                                                    <div class="d5">
+                                                        <p><span></span>其他</p>
+                                                        <p class="pp5"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 工单处理 -->
+                                    <div class="gdcl">
+                                        <div id="GovMentS">
+                                            2020年工单处理结果统计
+                                        </div>
+                                        <div>
+                                            <ul id="comment1"></ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- 消费性质投诉统计 -->
+                                    <div class="gdcl">
+                                        <div id="GovMentS">
+                                            2020年消费性质投诉统计
+                                        </div>
+                                        <div class="xfxz">
+                                            <div id="xfxz_t" class="xfxz_t" style="height:2.57rem;width: 100%;"></div>
+                                            <div class="xfxz_b">
+                                                <div class="xb">
+                                                    <p><span style="background: #CF83FF;"></span>售后服务</p>
+                                                    <p><span class="yy1"></span><span class="y1"></span></p>
+                                                    <p><span style="background: #FFA800;"></span>合同</p>
+                                                    <p><span class="yy2"></span><span class="y2"></span></p>
+                                                    <p><span style="background: #1FCCAB;"></span>质量</p>
+                                                    <p><span class="yy3"></span><span class="y3"></span></p>
+                                                    <!-- <p><span style="background: #6BD4E1;"></span>其他</p>
+                                                    <p><span class="yy4"></span><span class="y4"></span></p> -->
+                                                    <p><span style="background: #3AE83E;"></span>价格投诉</p>
+                                                    <p><span class="yy5"></span><span class="y5"></span></p>
+                                                    <p><span style="background: #FFCE79;"></span>食品安全</p>
+                                                    <p><span class="yy6"></span><span class="y6"></span></p>
+                                                    <p><span style="background: #FFA800;"></span>安全</p>
+                                                    <p><span class="yy7"></span><span class="y7"></span></p>
+                                                    <p><span style="background: #10B26B;"></span>不正当竞争</p>
+                                                    <p><span class="yy8"></span><span class="y8"></span></p>
+                                                    <p><span style="background: #F94B7B;"></span>广告</p>
+                                                    <p><span class="yy9"></span><span class="y9"></span></p>
+                                                </div>
+                                                <div class="xb">
+
+                                                    <p><span style="background: #8766FD;"></span>计量</p>
+                                                    <p><span class="yy10"></span><span class="y10"></span></p>
+                                                    <p><span style="background: #FFDE00;"></span>人身权利</p>
+                                                    <p><span class="yy11"></span><span class="y11"></span></p>
+                                                    <p><span style="background: #4B68F9;"></span>检验检测</p>
+                                                    <p><span class="yy12"></span><span class="y12"></span></p>
+                                                    <p><span style="background: #A294D6;"></span>认证认可</p>
+                                                    <p><span class="yy13"></span><span class="y13"></span></p>
+                                                    <p><span style="background: #5158BB;"></span>地理标志</p>
+                                                    <p><span class="yy14"></span><span class="y14"></span></p>
+                                                    <p><span style="background: #FD66B4;"></span>商标</p>
+                                                    <p><span class="yy15"></span><span class="y15"></span></p>
+                                                    <p><span style="background: #DD56ED;"></span>标准化</p>
+                                                    <p><span class="yy16"></span><span class="y16"></span></p>
+                                                    <p><span style="background: #e73415;"></span>专利</p>
+                                                    <p><span class="yy17"></span><span class="y17"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p class="nomo">没有更多了...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="../js/swiper.min.js"></script>
+
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/echarts-liquidfill.js"></script>
+    <script src="../js/index.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var mySwiper1,mySwiper2;
+        window.onload = function () {
+            mySwiper1 = new Swiper('#swiper-container1', {
+                direction: 'vertical'
+            });
+            window.mySwiper1 = mySwiper1;
+            mySwiper2 = new Swiper('#swiper-container2', {//子swiper
+                direction: 'vertical',
+                nested: true,
+                //resistanceRatio: 0,
+                slidesPerView: 'auto',
+                freeMode: true,
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+                
+            })
+            window.mySwiper2 = mySwiper2;
+        }
+	//opacity清除内容重叠bug
+    </script>
+</body>
+
+</html>
