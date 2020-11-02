@@ -413,6 +413,7 @@ h3{    font-size: 21px;
     margin-right: 0.1rem;
     padding-bottom: 0.15rem;
     border-bottom: 1px solid #3E569C;
+    text-align: left;
   }
   .point{
       display: inline-block;

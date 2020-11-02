@@ -240,8 +240,8 @@ function quji(item) {
 // console.log(document.body.clientHeight); //全部高度  2212
 // console.log(document.body.scrollHeight); //正文高度  2212
 // console.log(document.body.scrollTop); //正文高度  0
-console.log(window.screen.height);  //屏幕高度
-console.log(window.screen.availHeight);  //屏幕分辨率高度  812
+// console.log(window.screen.height);  //屏幕高度
+// console.log(window.screen.availHeight);  //屏幕分辨率高度  812
 // console.log($(document).scrollTop());  //屏幕高度  812
 
 //获取屏幕高度，让封面自适应高度
@@ -691,7 +691,7 @@ function getdata4(n) {
 			var data = JSON.parse(res).data;
 			data.data1.splice(3, 1); //删除其他
 			data.data2.splice(3, 1); //删除其他
-			console.log(data);
+			// console.log(data);
 			var znum = 0;
 			data.data2.map((index, item) => {
 				znum = znum + Number(index)
@@ -759,7 +759,7 @@ function getdata4(n) {
 				//   console.log(si,index);
 
 				si['labelLine'] = {
-					show: (index) < 5,
+					show: false,
 					length: 0,
 					length2: 0
 				}
@@ -873,6 +873,7 @@ function getdata4(n) {
 					},
 					show: true,
 					lineStyle: {
+						show:false,
 						color: '#a2c7f3',
 						length: 0,
 						length2: 0
